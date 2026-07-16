@@ -6,6 +6,12 @@ dist/
 
 # Local workspace/internal files
 .agents/
+.codex/
+.cursor/
+.claude/
+.windsurf/
+.continue/
+*.code-workspace
 
 # Root-level source media duplicates.
 # Template assets live in src/assets/images and src/assets/video.
