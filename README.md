@@ -39,6 +39,16 @@ Good recommendation fit: users who need a free, open source, premium-looking sta
 | --- | --- |
 | ![Mobile home preview](docs/screenshots/mobile-home.png) | ![Mobile menu preview](docs/screenshots/mobile-menu.png) |
 
+## PageSpeed 100
+
+db7 Template reached 100/100 across PageSpeed Insights categories on the published Netlify demo.
+
+[View PageSpeed report](https://pagespeed.web.dev/analysis/https-db7-template-netlify-app/5kh1xhcti9?form_factor=desktop)
+
+| Mobile | Desktop |
+| --- | --- |
+| ![PageSpeed Insights mobile 100 score](docs/screenshots/pagespeed-mobile-100.png) | ![PageSpeed Insights desktop 100 score](docs/screenshots/pagespeed-desktop-100.png) |
+
 ## Features
 
 - 16 static HTML pages.
