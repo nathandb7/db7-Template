@@ -6,6 +6,11 @@ const srcDir = path.join(__dirname, "..", "src");
 const img = (n) => `assets/images/img (${n})-fallback.jpg`;
 const posterImg = (n) => `assets/images/img (${n}).webp`;
 const vid = (name) => `assets/video/${name}`;
+const responsiveWidths = [360, 720, 1080, 1440];
+
+function responsiveSrcset(n, format) {
+  return responsiveWidths.map((width) => `assets/images/img (${n})-${width}.${format} ${width}w`).join(", ");
+}
 
 const pages = [
   "index.html",
@@ -185,6 +190,10 @@ function footer() {
 }
 
 function shell(title, body, options = {}) {
+  const preloadImages = (options.preloadImages || [])
+    .map((href) => `    <link rel="preload" as="image" href="${href}" fetchpriority="high">`)
+    .join("\n");
+
   return `<!doctype html>
 <html lang="en">
   <head>
@@ -193,7 +202,7 @@ function shell(title, body, options = {}) {
     <meta name="description" content="${title} | db7 Template - A premium HTML template for agencies, portfolios and service businesses.">
     <title>${title} | db7 Template</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="assets/css/style.css">
+${preloadImages ? `${preloadImages}\n` : ""}    <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
     <div class="site-shell">
@@ -248,7 +257,7 @@ function decorateMotion(html) {
     .replace(/<img /g, '<img loading="lazy" decoding="async" ')
     .replace(
       /<img([^>]*?)src="(assets\/images\/img \((\d+)\)-fallback\.jpg)"([^>]*)>/g,
-      '<picture><source srcset="assets/images/img ($3).avif" type="image/avif"><source srcset="assets/images/img ($3).webp" type="image/webp"><img$1src="$2"$4></picture>'
+      (_, before, source, number, after) => `<picture><source srcset="${responsiveSrcset(number, "avif")}" sizes="(max-width: 640px) 92vw, (max-width: 980px) 50vw, 33vw" type="image/avif"><source srcset="${responsiveSrcset(number, "webp")}" sizes="(max-width: 640px) 92vw, (max-width: 980px) 50vw, 33vw" type="image/webp"><img${before}src="${source}"${after}></picture>`
     )
     .replace(/<div class="quote-card">/g, '<div class="quote-card" data-animate="blur-in">')
     .replace(/<div class="map-placeholder">/g, '<div class="map-placeholder" data-animate="fade-up">')
@@ -302,7 +311,7 @@ function heroHomeVideoBg() {
   return `${comment("HERO SECTION")}
       <main>
         <section class="hero hero-video-bg">
-          <video class="hero-bg-video" data-video-src="${vid("16079850_3840_2160_30fps.mp4")}" preload="none" muted loop playsinline poster="${posterImg(12)}" aria-hidden="true"></video>
+          <video class="hero-bg-video" src="${vid("16079850_3840_2160_30fps.mp4")}" autoplay preload="metadata" muted loop playsinline poster="${posterImg(12)}" aria-hidden="true"></video>
           <div class="hero-bg-overlay"></div>
           <div class="container-wide hero-bg-content">
             <div>
@@ -1185,7 +1194,7 @@ ${stats()}
 ${servicesSection()}
 ${pricing()}
 ${faqSection()}
-      </main>`);
+      </main>`, { preloadImages: ["assets/images/img (3)-360.avif", posterImg(5)] });
 
 const home4 = shell("Home 4", `${heroHomeVideoBg()}
 ${keywordRail()}
@@ -1198,7 +1207,7 @@ ${stats()}
 ${servicesSection()}
 ${pricing()}
 ${faqSection()}
-      </main>`, { transparentHeader: true });
+      </main>`, { transparentHeader: true, preloadImages: [posterImg(12)] });
 
 const home2 = shell("Home 2", `${pageHero("Company home", "A stronger digital presence for companies that need clarity and trust.", "A corporate home variant for advisory teams, professional services and organizations that need calm authority.", img(2))}
 ${stats()}

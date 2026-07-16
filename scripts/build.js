@@ -55,12 +55,19 @@ const scriptBlock = [
   '    <script src="assets/js/main.js"></script>'
 ].join("\n");
 
+const stylePath = path.join(dist, "assets", "css", "style.css");
+const style = fs.readFileSync(stylePath, "utf8");
+const styleTag = `    <style>\n${style}\n    </style>`;
+const scriptTag = `    <script>\n${bundle}\n    </script>`;
+
 for (const file of fs.readdirSync(dist).filter((item) => item.endsWith(".html"))) {
   const htmlPath = path.join(dist, file);
   const html = fs.readFileSync(htmlPath, "utf8");
   fs.writeFileSync(
     htmlPath,
-    html.replace(scriptBlock, '    <script src="assets/js/app.js"></script>'),
+    html
+      .replace('    <link rel="stylesheet" href="assets/css/style.css">', styleTag)
+      .replace(scriptBlock, scriptTag),
     "utf8"
   );
 }

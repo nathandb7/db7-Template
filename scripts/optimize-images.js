@@ -4,6 +4,7 @@ const sharp = require("sharp");
 
 const imagesDir = path.join(__dirname, "..", "src", "assets", "images");
 const maxWidth = 1440;
+const responsiveWidths = [360, 720, 1080, 1440];
 
 async function optimizeImage(file) {
   const source = path.join(imagesDir, file);
@@ -42,6 +43,27 @@ async function optimizeImage(file) {
       mozjpeg: true
     })
     .toFile(fallbackTarget);
+
+  for (const width of responsiveWidths) {
+    await image
+      .clone()
+      .resize({ width })
+      .webp({
+        quality: 72,
+        effort: 6,
+        smartSubsample: true
+      })
+      .toFile(path.join(imagesDir, file.replace(/\.(jpe?g|png)$/i, `-${width}.webp`)));
+
+    await image
+      .clone()
+      .resize({ width })
+      .avif({
+        quality: 48,
+        effort: 6
+      })
+      .toFile(path.join(imagesDir, file.replace(/\.(jpe?g|png)$/i, `-${width}.avif`)));
+  }
 
   const original = fs.statSync(source).size;
   const webp = fs.statSync(webpTarget).size;

@@ -28,11 +28,13 @@
 
   function syncHeader() {
     if (!header) return;
-    header.classList.toggle("is-sticky", window.scrollY > 20);
-    if (scrollTop) scrollTop.classList.toggle("is-visible", window.scrollY > 500);
 
+    const scrollY = window.scrollY;
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    const progress = scrollable > 0 ? (scrollY / scrollable) * 100 : 0;
+
+    header.classList.toggle("is-sticky", scrollY > 20);
+    if (scrollTop) scrollTop.classList.toggle("is-visible", scrollY > 500);
     scrollProgress.style.setProperty("--scroll-progress", `${Math.min(progress, 100)}%`);
   }
 
