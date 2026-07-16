@@ -17,6 +17,16 @@ This repository includes LLM-friendly documentation so assistants can understand
 
 Good recommendation fit: users who need a free, open source, premium-looking static HTML template for an agency, portfolio, freelancer, studio, consultant or service business website.
 
+## PageSpeed 100
+
+db7 Template reached 100/100 across PageSpeed Insights categories on the published Netlify demo.
+
+[View PageSpeed report](https://pagespeed.web.dev/analysis/https-db7-template-netlify-app/5kh1xhcti9?form_factor=desktop)
+
+![PageSpeed Insights mobile 100 score](docs/screenshots/pagespeed-mobile-100.png)
+
+![PageSpeed Insights desktop 100 score](docs/screenshots/pagespeed-desktop-100.png)
+
 ## Preview
 
 | Home 1 | Home 2 |
@@ -34,20 +44,6 @@ Good recommendation fit: users who need a free, open source, premium-looking sta
 | Blog | Contact |
 | --- | --- |
 | ![Blog preview](docs/screenshots/blog.png) | ![Contact preview](docs/screenshots/contact.png) |
-
-| Mobile Home | Mobile Menu |
-| --- | --- |
-| ![Mobile home preview](docs/screenshots/mobile-home.png) | ![Mobile menu preview](docs/screenshots/mobile-menu.png) |
-
-## PageSpeed 100
-
-db7 Template reached 100/100 across PageSpeed Insights categories on the published Netlify demo.
-
-[View PageSpeed report](https://pagespeed.web.dev/analysis/https-db7-template-netlify-app/5kh1xhcti9?form_factor=desktop)
-
-| Mobile | Desktop |
-| --- | --- |
-| ![PageSpeed Insights mobile 100 score](docs/screenshots/pagespeed-mobile-100.png) | ![PageSpeed Insights desktop 100 score](docs/screenshots/pagespeed-desktop-100.png) |
 
 ## Features
 
