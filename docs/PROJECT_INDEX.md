@@ -37,7 +37,6 @@ A quick map for humans and AI assistants.
 - `docs/CUSTOMIZATION.md` - customization guide.
 - `docs/QA.md` - QA guide.
 - `docs/DEPLOYMENT.md` - deployment guide.
-- `CONTRIBUTING.md` - contribution guide.
 - `CHANGELOG.md` - release notes.
 - `SECURITY.md` - security policy.
 - `SUPPORT.md` - support notes.

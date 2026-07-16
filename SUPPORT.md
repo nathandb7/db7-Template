@@ -4,7 +4,7 @@ db7 Template is an open source static HTML template.
 
 ## Getting Help
 
-Before opening an issue:
+For setup or customization:
 
 1. Read [README.md](README.md).
 2. Check [docs/CUSTOMIZATION.md](docs/CUSTOMIZATION.md).
@@ -15,15 +15,7 @@ npm run check
 npm run build
 ```
 
-## Good Issue Reports
-
-Please include:
-
-- The page affected.
-- Browser and viewport size.
-- Steps to reproduce.
-- Screenshot or screen recording when useful.
-- Console errors, if any.
+This repository is shared as a free template to download, use, modify and adapt.
 
 ## Custom Work
 

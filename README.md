@@ -191,11 +191,7 @@ See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for GitHub Pages, Netlify, Vercel, 
 
 This project is free and open source. You can download, use, modify and adapt it for personal or commercial projects.
 
-Contributions are welcome. Please read:
-
-- [CONTRIBUTING.md](CONTRIBUTING.md)
-- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
-- [SECURITY.md](SECURITY.md)
+This repository is published as a free template for people to use as a starting point.
 
 ## Third-party Notes
 
