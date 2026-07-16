@@ -1,0 +1,22 @@
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: var(--scroll-progress, 0%);
+  height: 3px;
+  background: var(--color-primary, #d8ff3e);
+  pointer-events: none;
+}
+
+[data-parallax] {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress,
+  [data-parallax] {
+    transition: none !important;
+    transform: none !important;
+  }
+}

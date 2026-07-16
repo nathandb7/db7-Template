@@ -1,0 +1,117 @@
+:root {
+  --motion-duration-fast: 420ms;
+  --motion-duration: 980ms;
+  --motion-duration-slow: 1200ms;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-distance: 18px;
+  --motion-blur: 6px;
+}
+
+html.motion-ready [data-animate] {
+  opacity: 0;
+  transition:
+    transform var(--motion-duration-fast) var(--motion-ease),
+    box-shadow var(--motion-duration-fast) var(--motion-ease),
+    border-color var(--motion-duration-fast) var(--motion-ease);
+  transition-delay: var(--motion-delay, 0ms);
+  will-change: transform;
+}
+
+html.motion-ready [data-animate][data-initial] {
+  opacity: 1;
+}
+
+html.motion-ready [data-animate].is-visible {
+  animation-duration: var(--motion-duration);
+  animation-delay: var(--motion-delay, 0ms);
+  animation-timing-function: var(--motion-ease);
+  animation-fill-mode: both;
+}
+
+html.motion-ready [data-animate="fade-up"].is-visible {
+  animation-name: db7FadeUp;
+}
+
+html.motion-ready [data-animate="fade-down"].is-visible {
+  animation-name: db7FadeDown;
+}
+
+html.motion-ready [data-animate="fade-left"].is-visible {
+  animation-name: db7FadeLeft;
+}
+
+html.motion-ready [data-animate="fade-right"].is-visible {
+  animation-name: db7FadeRight;
+}
+
+html.motion-ready [data-animate="scale-in"].is-visible {
+  animation-name: db7ScaleIn;
+}
+
+html.motion-ready [data-animate="blur-in"].is-visible {
+  animation-name: db7BlurIn;
+}
+
+html.motion-ready [data-animate="clip-up"].is-visible,
+html.motion-ready [data-animate="image-reveal"].is-visible {
+  animation-name: db7SoftReveal;
+}
+
+html.motion-ready [data-animate="rotate-in"].is-visible {
+  animation-name: db7RotateIn;
+}
+
+.image-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+html.motion-ready .image-reveal::after {
+  content: none;
+}
+
+html.motion-ready .image-reveal.is-visible img,
+html.motion-ready .image-reveal.is-visible video {
+  animation: db7ImageZoom 1200ms var(--motion-ease) both;
+}
+
+html.motion-ready .image-reveal.is-visible::after {
+  animation: none;
+}
+
+@keyframes db7FadeUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes db7ScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animate],
+  [data-animate] *,
+  .image-reveal img,
+  .image-reveal video,
+  .image-reveal::after {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+    opacity: 1 !important;
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "db7-template",
+  "version": "1.0.0",
+  "description": "A premium HTML template for agencies, portfolios and service businesses.",
+  "author": "Nathan de Barros",
+  "license": "MIT",
+  "keywords": [
+    "html-template",
+    "agency-template",
+    "portfolio-template",
+    "service-business-template",
+    "landing-page-template",
+    "components-library",
+    "copy-paste-components",
+    "static-site",
+    "static-html",
+    "responsive",
+    "mobile-responsive",
+    "dark-template",
+    "premium-template",
+    "open-source-template",
+    "open-source"
+  ],
+  "scripts": {
+    "dev": "node scripts/dev-server.js",
+    "serve": "node scripts/dev-server.js",
+    "build": "node scripts/build.js",
+    "clean": "node scripts/clean.js",
+    "check": "node scripts/check-static.js",
+    "generate": "node scripts/generate-pages.js",
+    "qa:mobile": "node scripts/mobile-qa.js",
+    "prepare:release": "npm run clean && npm run generate && npm run build && npm run check"
+  },
+  "devDependencies": {
+    "playwright": "^1.61.0"
+  }
+}

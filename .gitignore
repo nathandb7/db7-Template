@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Local workspace/internal files
+.agents/
+
+# Root-level source media duplicates.
+# Template assets live in src/assets/images and src/assets/video.
+/images/
+/video/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment files
+.env
+.env.*
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Temporary browser/QA files
+.tmp-edge*/
+playwright-report/
+test-results/
+
+# Local archives
+*.zip
+*.tar
+*.tgz
