@@ -3,7 +3,8 @@ const path = require("path");
 
 const srcDir = path.join(__dirname, "..", "src");
 
-const img = (n) => `assets/images/img (${n}).jpg`;
+const img = (n) => `assets/images/img (${n})-fallback.jpg`;
+const posterImg = (n) => `assets/images/img (${n}).webp`;
 const vid = (name) => `assets/video/${name}`;
 
 const pages = [
@@ -160,7 +161,7 @@ function footer() {
 
           <div class="footer-bottom">
             <span>&copy; 2026 db7 Template. All rights reserved.</span>
-            <span>By: <a href="https://nathandebarros.com" target="_blank" rel="noopener">Nathan de Barros</a> made in <span class="fi fi-uy db7-flag" aria-label="Uruguay"></span></span>
+            <span>By: <a href="https://nathandebarros.com" target="_blank" rel="noopener">Nathan de Barros</a> made in <span class="db7-flag" role="img" aria-label="Uruguay">UY</span></span>
           </div>
         </div>
       </footer>
@@ -192,11 +193,6 @@ function shell(title, body, options = {}) {
     <meta name="description" content="${title} | db7 Template - A premium HTML template for agencies, portfolios and service businesses.">
     <title>${title} | db7 Template</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css">
-    <link rel="stylesheet" href="assets/css/plugins.css">
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
@@ -249,6 +245,11 @@ function decorateMotion(html) {
     .replace(/<div class="footer-grid">/g, '<div class="footer-grid" data-animate="fade-up">')
     .replace(/<aside class="sidebar-widget">/g, '<aside class="sidebar-widget" data-animate="fade-up">')
     .replace(/<div class="contact-card">/g, '<div class="contact-card" data-animate="fade-up">')
+    .replace(/<img /g, '<img loading="lazy" decoding="async" ')
+    .replace(
+      /<img([^>]*?)src="(assets\/images\/img \((\d+)\)-fallback\.jpg)"([^>]*)>/g,
+      '<picture><source srcset="assets/images/img ($3).avif" type="image/avif"><source srcset="assets/images/img ($3).webp" type="image/webp"><img$1src="$2"$4></picture>'
+    )
     .replace(/<div class="quote-card">/g, '<div class="quote-card" data-animate="blur-in">')
     .replace(/<div class="map-placeholder">/g, '<div class="map-placeholder" data-animate="fade-up">')
     .replace(/<form class="form-grid"/g, '<form class="form-grid" data-animate="fade-up"')
@@ -286,7 +287,7 @@ function heroHome() {
               </div>
 
               <div class="hero-media">
-                <video src="${vid("hero.mp4")}" autoplay muted loop playsinline poster="${img(5)}"></video>
+                <video data-video-src="${vid("hero.mp4")}" preload="none" muted loop playsinline poster="${posterImg(5)}" aria-hidden="true"></video>
                 <div class="media-badge">
                   <strong>15</strong>
                   <span>complete pages, dark sections and reusable components.</span>
@@ -301,7 +302,7 @@ function heroHomeVideoBg() {
   return `${comment("HERO SECTION")}
       <main>
         <section class="hero hero-video-bg">
-          <video class="hero-bg-video" src="${vid("16079850_3840_2160_30fps.mp4")}" autoplay muted loop playsinline poster="${img(12)}"></video>
+          <video class="hero-bg-video" data-video-src="${vid("16079850_3840_2160_30fps.mp4")}" preload="none" muted loop playsinline poster="${posterImg(12)}" aria-hidden="true"></video>
           <div class="hero-bg-overlay"></div>
           <div class="container-wide hero-bg-content">
             <div>
@@ -367,7 +368,7 @@ function videoShowcase() {
         <section class="section-sm">
           <div class="container-wide">
             <div class="video-showcase">
-              <video src="${vid("18120715-hd_1920_1080_60fps.mp4")}" autoplay muted loop playsinline poster="${img(12)}"></video>
+              <video data-video-src="${vid("18120715-hd_1920_1080_60fps.mp4")}" preload="none" muted loop playsinline poster="${posterImg(12)}" aria-hidden="true"></video>
               <div class="video-overlay">
                 <div>
                   <span class="eyebrow">Motion preview</span>
@@ -678,14 +679,14 @@ function componentsPageContent() {
         <p class="hero-text">A premium HTML template for agencies and portfolios.</p>
       </div>
       <div class="hero-media">
-        <video src="assets/video/hero.mp4" autoplay muted loop playsinline></video>
+        <video data-video-src="assets/video/hero.mp4" preload="none" muted loop playsinline aria-hidden="true"></video>
       </div>
     </div>
   </div>
 </section>`),
-    componentBlock("Hero video background", "Heroes", `<div class="component-video-hero"><video src="${vid("hero.mp4")}" autoplay muted loop playsinline></video><div><span class="eyebrow">Video</span><h2>Full-screen video hero.</h2></div></div>`, `<!-- HERO VIDEO BACKGROUND -->
+    componentBlock("Hero video background", "Heroes", `<div class="component-video-hero"><video data-video-src="${vid("hero.mp4")}" preload="none" muted loop playsinline aria-hidden="true"></video><div><span class="eyebrow">Video</span><h2>Full-screen video hero.</h2></div></div>`, `<!-- HERO VIDEO BACKGROUND -->
 <section class="hero hero-video-bg">
-  <video class="hero-bg-video" src="assets/video/hero.mp4" autoplay muted loop playsinline></video>
+  <video class="hero-bg-video" data-video-src="assets/video/hero.mp4" preload="none" muted loop playsinline aria-hidden="true"></video>
   <div class="hero-bg-overlay"></div>
   <div class="container-wide hero-bg-content">
     <div>
@@ -708,7 +709,7 @@ function componentsPageContent() {
 </section>`),
     componentBlock("Hero note", "Heroes", `<div class="hero-note"><img src="${img(3)}" alt="Note image"><p>Small proof note below a hero.</p></div>`, `<!-- HERO NOTE -->
 <div class="hero-note">
-  <img src="assets/images/img (3).jpg" alt="Editorial portrait crop">
+  <img src="assets/images/img (3).webp" alt="Editorial portrait crop">
   <p>Small proof note below a hero.</p>
 </div>`)
   ];
@@ -735,9 +736,9 @@ function componentsPageContent() {
     </div>
   </div>
 </div>`),
-    componentBlock("Video showcase", "Content", `<div class="video-showcase component-video-preview"><video src="${vid("18120715-hd_1920_1080_60fps.mp4")}" autoplay muted loop playsinline></video><div class="video-overlay"><span class="eyebrow">Motion</span><button class="play-button">Play</button></div></div>`, `<!-- VIDEO SHOWCASE -->
+    componentBlock("Video showcase", "Content", `<div class="video-showcase component-video-preview"><video data-video-src="${vid("18120715-hd_1920_1080_60fps.mp4")}" preload="none" muted loop playsinline aria-hidden="true"></video><div class="video-overlay"><span class="eyebrow">Motion</span><button class="play-button">Play</button></div></div>`, `<!-- VIDEO SHOWCASE -->
 <div class="video-showcase">
-  <video src="assets/video/hero.mp4" autoplay muted loop playsinline></video>
+  <video data-video-src="assets/video/hero.mp4" preload="none" muted loop playsinline aria-hidden="true"></video>
   <div class="video-overlay">
     <span class="eyebrow">Motion preview</span>
     <button class="play-button" type="button" data-video-open="assets/video/hero.mp4">Play</button>
@@ -751,7 +752,7 @@ function componentsPageContent() {
 </div>`),
     componentBlock("Testimonial", "Content", `<div class="testimonial panel component-testimonial-preview"><img src="${img(4)}" alt="Testimonial"><div class="testimonial-quote"><blockquote>"A polished starting point."</blockquote><cite>Client name</cite></div></div>`, `<!-- TESTIMONIAL -->
 <div class="testimonial panel">
-  <img src="assets/images/img (4).jpg" alt="Studio work environment">
+  <img src="assets/images/img (4).webp" alt="Studio work environment">
   <div class="testimonial-quote">
     <blockquote>"A polished starting point."</blockquote>
     <cite>Client name</cite>
@@ -773,7 +774,7 @@ function componentsPageContent() {
   const cards = [
     componentBlock("Work card", "Cards", `<article class="work-card"><img src="${img(1)}" alt="Work"><div class="work-card-body"><h3>Signal Theory</h3><p>Brand system preview.</p></div></article>`, `<!-- WORK CARD -->
 <article class="work-card" data-category="brand">
-  <a href="work-details.html"><img src="assets/images/img (1).jpg" alt="Project image"></a>
+  <a href="work-details.html"><img src="assets/images/img (1).webp" alt="Project image"></a>
   <div class="work-card-body">
     <h3><a href="work-details.html">Signal Theory</a></h3>
     <p>Brand system preview.</p>
@@ -801,7 +802,7 @@ function componentsPageContent() {
 </article>`),
     componentBlock("Blog card", "Cards", `<article class="blog-card"><img src="${img(5)}" alt="Blog"><div class="blog-card-body"><h3>Agency homepage structure</h3><p>A practical design note.</p></div></article>`, `<!-- BLOG CARD -->
 <article class="blog-card">
-  <a href="blog-details.html"><img src="assets/images/img (5).jpg" alt="Blog image"></a>
+  <a href="blog-details.html"><img src="assets/images/img (5).webp" alt="Blog image"></a>
   <div class="blog-card-body">
     <h3><a href="blog-details.html">Agency homepage structure</a></h3>
     <p>A practical design note.</p>
@@ -809,7 +810,7 @@ function componentsPageContent() {
 </article>`),
     componentBlock("Team card", "Cards", `<article class="team-card"><img src="${img(3)}" alt="Team"><div class="team-card-body"><h3>Creative Director</h3><p>Profile card text.</p></div></article>`, `<!-- TEAM CARD -->
 <article class="team-card">
-  <img src="assets/images/img (3).jpg" alt="Team member">
+  <img src="assets/images/img (3).webp" alt="Team member">
   <div class="team-card-body">
     <h3>Creative Director</h3>
     <p>Profile card text.</p>
@@ -841,7 +842,7 @@ function componentsPageContent() {
     <input type="search" placeholder="Search pages">
   </div>
 </div>`),
-    componentBlock("Video modal", "Interactive", `<div class="modal-box component-modal-preview"><button class="icon-button">Close</button><video src="${vid("hero.mp4")}" muted playsinline></video></div>`, `<!-- VIDEO MODAL -->
+    componentBlock("Video modal", "Interactive", `<div class="modal-box component-modal-preview"><button class="icon-button">Close</button><video data-video-src="${vid("hero.mp4")}" preload="none" muted playsinline></video></div>`, `<!-- VIDEO MODAL -->
 <div class="video-modal" data-video-modal>
   <div class="modal-box">
     <button class="icon-button" type="button" data-video-close>Close</button>
@@ -881,7 +882,7 @@ function componentsPageContent() {
     componentBlock("Masonry item", "Layout", `<div class="masonry-grid component-masonry-preview"><article class="work-card"><img src="${img(9)}" alt="Masonry"><div class="work-card-body"><h3>Masonry card</h3></div></article></div>`, `<!-- MASONRY GRID ITEM -->
 <div class="masonry-grid">
   <article class="work-card">
-    <img src="assets/images/img (9).jpg" alt="Masonry work">
+    <img src="assets/images/img (9).webp" alt="Masonry work">
     <div class="work-card-body">
       <h3>Masonry card</h3>
     </div>
@@ -903,13 +904,13 @@ function componentsPageContent() {
 </div>`),
     componentBlock("Gallery grid", "Page Blocks", `<div class="grid grid-3"><img class="rounded-media" src="${img(4)}" alt="Gallery"><img class="rounded-media" src="${img(8)}" alt="Gallery"><img class="rounded-media" src="${img(12)}" alt="Gallery"></div>`, `<!-- GALLERY GRID -->
 <div class="grid grid-3">
-  <img class="rounded-media" src="assets/images/img (4).jpg" alt="Gallery image">
-  <img class="rounded-media" src="assets/images/img (8).jpg" alt="Gallery image">
-  <img class="rounded-media" src="assets/images/img (12).jpg" alt="Gallery image">
+  <img class="rounded-media" src="assets/images/img (4).webp" alt="Gallery image">
+  <img class="rounded-media" src="assets/images/img (8).webp" alt="Gallery image">
+  <img class="rounded-media" src="assets/images/img (12).webp" alt="Gallery image">
 </div>`),
     componentBlock("Profile detail", "Page Blocks", `<div class="grid grid-2"><img class="rounded-media" src="${img(3)}" alt="Profile"><div class="detail-content"><h2>Bio</h2><p>Profile text for a specialist.</p></div></div>`, `<!-- PROFILE DETAIL -->
 <div class="grid grid-2">
-  <img class="rounded-media" src="assets/images/img (3).jpg" alt="Profile">
+  <img class="rounded-media" src="assets/images/img (3).webp" alt="Profile">
   <div class="detail-content">
     <h2>Bio</h2>
     <p>Profile text for a specialist.</p>
@@ -961,7 +962,7 @@ function componentsPageContent() {
     </div>
     <div class="work-grid" data-stagger>
       <article class="work-card" data-category="brand" data-animate="scale-in">
-        <a href="work-details.html"><img src="assets/images/img (1).jpg" alt="Signal Theory project"></a>
+        <a href="work-details.html"><img src="assets/images/img (1).webp" alt="Signal Theory project"></a>
         <div class="work-card-body">
           <div class="tag-row">
             <span class="tag">brand</span>
@@ -972,7 +973,7 @@ function componentsPageContent() {
         </div>
       </article>
       <article class="work-card" data-category="web" data-animate="scale-in">
-        <a href="work-details.html"><img src="assets/images/img (2).jpg" alt="Atlas Mode project"></a>
+        <a href="work-details.html"><img src="assets/images/img (2).webp" alt="Atlas Mode project"></a>
         <div class="work-card-body">
           <div class="tag-row">
             <span class="tag">web</span>
@@ -983,7 +984,7 @@ function componentsPageContent() {
         </div>
       </article>
       <article class="work-card" data-category="product" data-animate="scale-in">
-        <a href="work-details.html"><img src="assets/images/img (4).jpg" alt="Northline project"></a>
+        <a href="work-details.html"><img src="assets/images/img (4).webp" alt="Northline project"></a>
         <div class="work-card-body">
           <div class="tag-row">
             <span class="tag">product</span>
@@ -1146,7 +1147,7 @@ function componentsPageContent() {
 <div class="stat-number" data-counter-target="100" data-counter-suffix="%">100%</div>`),
     componentBlock("Soft parallax", "Animation API", `<div class="component-code-note"><h3>Parallax</h3><p>Use sparingly on large media only. It is disabled on small screens and with reduced motion.</p></div>`, `<!-- SOFT PARALLAX -->
 <div class="video-showcase" data-parallax data-parallax-speed="0.06">
-  <video src="assets/video/hero.mp4" autoplay muted loop playsinline></video>
+  <video data-video-src="assets/video/hero.mp4" preload="none" muted loop playsinline aria-hidden="true"></video>
 </div>`),
     componentBlock("Reduced motion", "Animation API", `<div class="component-code-note"><h3>Accessibility</h3><p>The system respects <code>prefers-reduced-motion</code>. Content remains visible if JavaScript fails.</p></div>`, `/* REDUCED MOTION */
 @media (prefers-reduced-motion: reduce) {

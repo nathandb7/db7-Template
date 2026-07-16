@@ -12,6 +12,7 @@
   const scrollTop = document.querySelector("[data-scroll-top]");
   const modal = document.querySelector("[data-video-modal]");
   const modalVideo = modal ? modal.querySelector("video") : null;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function closeOverlays() {
     body.classList.remove("menu-open", "search-open", "modal-open");
@@ -98,6 +99,38 @@
       });
     });
   });
+
+  function loadLazyVideos() {
+    if (reduceMotion) return;
+
+    document.querySelectorAll("video[data-video-src]").forEach((video) => {
+      const source = video.getAttribute("data-video-src");
+      if (!source || video.src) return;
+
+      video.src = source;
+      video.removeAttribute("data-video-src");
+
+      if (video.muted && video.loop) {
+        video.play().catch(() => {});
+      }
+    });
+  }
+
+  function scheduleLazyVideos() {
+    ["pointerdown", "keydown", "touchstart"].forEach((eventName) => {
+      window.addEventListener(eventName, loadLazyVideos, { once: true, passive: true });
+    });
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (window.scrollY > 120) loadLazyVideos();
+      },
+      { once: true, passive: true }
+    );
+  }
+
+  window.addEventListener("load", scheduleLazyVideos, { once: true });
 
   document.querySelectorAll("[data-copy-code]").forEach((button) => {
     button.addEventListener("click", async () => {

@@ -14,6 +14,14 @@ function copyDir(from, to) {
     if (entry.isDirectory()) {
       copyDir(source, target);
     } else {
+      const isSourceImage = source.includes(`${path.sep}assets${path.sep}images${path.sep}`);
+      const hasOptimizedWebp = /\.(jpe?g|png)$/i.test(entry.name)
+        && fs.existsSync(source.replace(/\.(jpe?g|png)$/i, ".webp"));
+
+      if (isSourceImage && hasOptimizedWebp) {
+        continue;
+      }
+
       fs.copyFileSync(source, target);
     }
   }
@@ -24,4 +32,37 @@ if (fs.existsSync(dist)) {
 }
 
 copyDir(src, dist);
+
+const jsDir = path.join(dist, "assets", "js");
+const bundleFiles = [
+  "plugins.js",
+  path.join("modules", "scroll-reveal.js"),
+  path.join("modules", "scroll-parallax.js"),
+  path.join("modules", "counter.js"),
+  "main.js"
+];
+const bundle = bundleFiles
+  .map((file) => fs.readFileSync(path.join(jsDir, file), "utf8"))
+  .join("\n\n");
+
+fs.writeFileSync(path.join(jsDir, "app.js"), bundle, "utf8");
+
+const scriptBlock = [
+  '    <script src="assets/js/plugins.js"></script>',
+  '    <script src="assets/js/modules/scroll-reveal.js"></script>',
+  '    <script src="assets/js/modules/scroll-parallax.js"></script>',
+  '    <script src="assets/js/modules/counter.js"></script>',
+  '    <script src="assets/js/main.js"></script>'
+].join("\n");
+
+for (const file of fs.readdirSync(dist).filter((item) => item.endsWith(".html"))) {
+  const htmlPath = path.join(dist, file);
+  const html = fs.readFileSync(htmlPath, "utf8");
+  fs.writeFileSync(
+    htmlPath,
+    html.replace(scriptBlock, '    <script src="assets/js/app.js"></script>'),
+    "utf8"
+  );
+}
+
 console.log("Built dist/ from src/");

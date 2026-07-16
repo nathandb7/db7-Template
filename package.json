@@ -24,14 +24,16 @@
   "scripts": {
     "dev": "node scripts/dev-server.js",
     "serve": "node scripts/dev-server.js",
+    "images": "node scripts/optimize-images.js",
     "build": "node scripts/build.js",
     "clean": "node scripts/clean.js",
     "check": "node scripts/check-static.js",
     "generate": "node scripts/generate-pages.js",
     "qa:mobile": "node scripts/mobile-qa.js",
-    "prepare:release": "npm run clean && npm run generate && npm run build && npm run check"
+    "prepare:release": "npm run clean && npm run images && npm run generate && npm run build && npm run check"
   },
   "devDependencies": {
-    "playwright": "^1.61.0"
+    "playwright": "^1.61.0",
+    "sharp": "^0.35.3"
   }
 }

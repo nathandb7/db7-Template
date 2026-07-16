@@ -6,11 +6,6 @@
     <meta name="description" content="Components | db7 Template - A premium HTML template for agencies, portfolios and service businesses.">
     <title>Components | db7 Template</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css">
-    <link rel="stylesheet" href="assets/css/plugins.css">
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
@@ -106,7 +101,7 @@
               </div>
               <div>
                 <p>Use this page as a component index for db7 Template. Each block includes a compact preview and editable HTML with section comments.</p>
-                <img class="rounded-media" src="assets/images/img (6).jpg" alt="36+ reusable blocks in one organized copy-and-paste library." style="margin-top: 24px; aspect-ratio: 4 / 3;">
+                <picture><source srcset="assets/images/img (6).avif" type="image/avif"><source srcset="assets/images/img (6).webp" type="image/webp"><img loading="lazy" decoding="async" class="rounded-media" src="assets/images/img (6)-fallback.jpg" alt="36+ reusable blocks in one organized copy-and-paste library." style="margin-top: 24px; aspect-ratio: 4 / 3;"></picture>
               </div>
             </div>
           </div>
@@ -324,7 +319,7 @@
         &lt;p class="hero-text"&gt;A premium HTML template for agencies and portfolios.&lt;/p&gt;
       &lt;/div&gt;
       &lt;div class="hero-media"&gt;
-        &lt;video src="assets/video/hero.mp4" autoplay muted loop playsinline&gt;&lt;/video&gt;
+        &lt;video data-video-src="assets/video/hero.mp4" preload="none" muted loop playsinline aria-hidden="true"&gt;&lt;/video&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -339,11 +334,11 @@
                   <button class="component-copy" type="button" data-copy-code>Copy code</button>
                 </div>
                 <div class="component-preview">
-                  <div class="component-video-hero"><video src="assets/video/hero.mp4" autoplay muted loop playsinline></video><div><span class="eyebrow">Video</span><h2>Full-screen video hero.</h2></div></div>
+                  <div class="component-video-hero"><video data-video-src="assets/video/hero.mp4" preload="none" muted loop playsinline aria-hidden="true"></video><div><span class="eyebrow">Video</span><h2>Full-screen video hero.</h2></div></div>
                 </div>
                 <pre><code>&lt;!-- HERO VIDEO BACKGROUND --&gt;
 &lt;section class="hero hero-video-bg"&gt;
-  &lt;video class="hero-bg-video" src="assets/video/hero.mp4" autoplay muted loop playsinline&gt;&lt;/video&gt;
+  &lt;video class="hero-bg-video" data-video-src="assets/video/hero.mp4" preload="none" muted loop playsinline aria-hidden="true"&gt;&lt;/video&gt;
   &lt;div class="hero-bg-overlay"&gt;&lt;/div&gt;
   &lt;div class="container-wide hero-bg-content"&gt;
     &lt;div&gt;
@@ -386,11 +381,11 @@
                   <button class="component-copy" type="button" data-copy-code>Copy code</button>
                 </div>
                 <div class="component-preview">
-                  <div class="hero-note"><img src="assets/images/img (3).jpg" alt="Note image"><p>Small proof note below a hero.</p></div>
+                  <div class="hero-note"><picture><source srcset="assets/images/img (3).avif" type="image/avif"><source srcset="assets/images/img (3).webp" type="image/webp"><img loading="lazy" decoding="async" src="assets/images/img (3)-fallback.jpg" alt="Note image"></picture><p>Small proof note below a hero.</p></div>
                 </div>
                 <pre><code>&lt;!-- HERO NOTE --&gt;
 &lt;div class="hero-note"&gt;
-  &lt;img src="assets/images/img (3).jpg" alt="Editorial portrait crop"&gt;
+  &lt;img src="assets/images/img (3).webp" alt="Editorial portrait crop"&gt;
   &lt;p&gt;Small proof note below a hero.&lt;/p&gt;
 &lt;/div&gt;</code></pre>
               </article>
@@ -465,11 +460,11 @@
                   <button class="component-copy" type="button" data-copy-code>Copy code</button>
                 </div>
                 <div class="component-preview">
-                  <div class="video-showcase component-video-preview"><video src="assets/video/18120715-hd_1920_1080_60fps.mp4" autoplay muted loop playsinline></video><div class="video-overlay"><span class="eyebrow">Motion</span><button class="play-button">Play</button></div></div>
+                  <div class="video-showcase component-video-preview"><video data-video-src="assets/video/18120715-hd_1920_1080_60fps.mp4" preload="none" muted loop playsinline aria-hidden="true"></video><div class="video-overlay"><span class="eyebrow">Motion</span><button class="play-button">Play</button></div></div>
                 </div>
                 <pre><code>&lt;!-- VIDEO SHOWCASE --&gt;
 &lt;div class="video-showcase"&gt;
-  &lt;video src="assets/video/hero.mp4" autoplay muted loop playsinline&gt;&lt;/video&gt;
+  &lt;video data-video-src="assets/video/hero.mp4" preload="none" muted loop playsinline aria-hidden="true"&gt;&lt;/video&gt;
   &lt;div class="video-overlay"&gt;
     &lt;span class="eyebrow"&gt;Motion preview&lt;/span&gt;
     &lt;button class="play-button" type="button" data-video-open="assets/video/hero.mp4"&gt;Play&lt;/button&gt;
@@ -503,11 +498,11 @@
                   <button class="component-copy" type="button" data-copy-code>Copy code</button>
                 </div>
                 <div class="component-preview">
-                  <div class="testimonial panel component-testimonial-preview"><img src="assets/images/img (4).jpg" alt="Testimonial"><div class="testimonial-quote"><blockquote>"A polished starting point."</blockquote><cite>Client name</cite></div></div>
+                  <div class="testimonial panel component-testimonial-preview"><picture><source srcset="assets/images/img (4).avif" type="image/avif"><source srcset="assets/images/img (4).webp" type="image/webp"><img loading="lazy" decoding="async" src="assets/images/img (4)-fallback.jpg" alt="Testimonial"></picture><div class="testimonial-quote"><blockquote>"A polished starting point."</blockquote><cite>Client name</cite></div></div>
                 </div>
                 <pre><code>&lt;!-- TESTIMONIAL --&gt;
 &lt;div class="testimonial panel"&gt;
-  &lt;img src="assets/images/img (4).jpg" alt="Studio work environment"&gt;
+  &lt;img src="assets/images/img (4).webp" alt="Studio work environment"&gt;
   &lt;div class="testimonial-quote"&gt;
     &lt;blockquote&gt;"A polished starting point."&lt;/blockquote&gt;
     &lt;cite&gt;Client name&lt;/cite&gt;
@@ -563,7 +558,7 @@
                   <button class="component-copy" type="button" data-copy-code>Copy code</button>
                 </div>
                 <div class="component-preview component-real-preview">
-                  <div class="filter-row" style="margin-bottom: 18px;"><button class="filter-button is-active">all</button><button class="filter-button">brand</button><button class="filter-button">web</button></div><div class="work-grid component-section-grid"><article class="work-card" data-animate="scale-in" data-category="brand"><a href="work-details.html"><img src="assets/images/img (1).jpg" alt="Signal Theory"></a><div class="work-card-body"><div class="tag-row"><span class="tag">brand</span><span class="tag tag-hot">db7</span></div><h3><a href="work-details.html">Signal Theory</a></h3><p>Brand system for a consulting lab</p></div></article><article class="work-card" data-animate="scale-in" data-category="web"><a href="work-details.html"><img src="assets/images/img (2).jpg" alt="Atlas Mode"></a><div class="work-card-body"><div class="tag-row"><span class="tag">web</span><span class="tag tag-hot">db7</span></div><h3><a href="work-details.html">Atlas Mode</a></h3><p>Portfolio platform with editorial case studies</p></div></article><article class="work-card" data-animate="scale-in" data-category="product"><a href="work-details.html"><img src="assets/images/img (4).jpg" alt="Northline"></a><div class="work-card-body"><div class="tag-row"><span class="tag">product</span><span class="tag tag-hot">db7</span></div><h3><a href="work-details.html">Northline</a></h3><p>Launch system for a B2B product team</p></div></article></div>
+                  <div class="filter-row" style="margin-bottom: 18px;"><button class="filter-button is-active">all</button><button class="filter-button">brand</button><button class="filter-button">web</button></div><div class="work-grid component-section-grid"><article class="work-card" data-animate="scale-in" data-category="brand"><a href="work-details.html"><picture><source srcset="assets/images/img (1).avif" type="image/avif"><source srcset="assets/images/img (1).webp" type="image/webp"><img loading="lazy" decoding="async" src="assets/images/img (1)-fallback.jpg" alt="Signal Theory"></picture></a><div class="work-card-body"><div class="tag-row"><span class="tag">brand</span><span class="tag tag-hot">db7</span></div><h3><a href="work-details.html">Signal Theory</a></h3><p>Brand system for a consulting lab</p></div></article><article class="work-card" data-animate="scale-in" data-category="web"><a href="work-details.html"><picture><source srcset="assets/images/img (2).avif" type="image/avif"><source srcset="assets/images/img (2).webp" type="image/webp"><img loading="lazy" decoding="async" src="assets/images/img (2)-fallback.jpg" alt="Atlas Mode"></picture></a><div class="work-card-body"><div class="tag-row"><span class="tag">web</span><span class="tag tag-hot">db7</span></div><h3><a href="work-details.html">Atlas Mode</a></h3><p>Portfolio platform with editorial case studies</p></div></article><article class="work-card" data-animate="scale-in" data-category="product"><a href="work-details.html"><picture><source srcset="assets/images/img (4).avif" type="image/avif"><source srcset="assets/images/img (4).webp" type="image/webp"><img loading="lazy" decoding="async" src="assets/images/img (4)-fallback.jpg" alt="Northline"></picture></a><div class="work-card-body"><div class="tag-row"><span class="tag">product</span><span class="tag tag-hot">db7</span></div><h3><a href="work-details.html">Northline</a></h3><p>Launch system for a B2B product team</p></div></article></div>
                 </div>
                 <pre><code>&lt;!-- WORKS SECTION --&gt;
 &lt;section class="section" data-filter-scope&gt;
@@ -583,7 +578,7 @@
     &lt;/div&gt;
     &lt;div class="work-grid" data-stagger&gt;
       &lt;article class="work-card" data-category="brand" data-animate="scale-in"&gt;
-        &lt;a href="work-details.html"&gt;&lt;img src="assets/images/img (1).jpg" alt="Signal Theory project"&gt;&lt;/a&gt;
+        &lt;a href="work-details.html"&gt;&lt;img src="assets/images/img (1).webp" alt="Signal Theory project"&gt;&lt;/a&gt;
         &lt;div class="work-card-body"&gt;
           &lt;div class="tag-row"&gt;
             &lt;span class="tag"&gt;brand&lt;/span&gt;
@@ -594,7 +589,7 @@
         &lt;/div&gt;
       &lt;/article&gt;
       &lt;article class="work-card" data-category="web" data-animate="scale-in"&gt;
-        &lt;a href="work-details.html"&gt;&lt;img src="assets/images/img (2).jpg" alt="Atlas Mode project"&gt;&lt;/a&gt;
+        &lt;a href="work-details.html"&gt;&lt;img src="assets/images/img (2).webp" alt="Atlas Mode project"&gt;&lt;/a&gt;
         &lt;div class="work-card-body"&gt;
           &lt;div class="tag-row"&gt;
             &lt;span class="tag"&gt;web&lt;/span&gt;
@@ -605,7 +600,7 @@
         &lt;/div&gt;
       &lt;/article&gt;
       &lt;article class="work-card" data-category="product" data-animate="scale-in"&gt;
-        &lt;a href="work-details.html"&gt;&lt;img src="assets/images/img (4).jpg" alt="Northline project"&gt;&lt;/a&gt;
+        &lt;a href="work-details.html"&gt;&lt;img src="assets/images/img (4).webp" alt="Northline project"&gt;&lt;/a&gt;
         &lt;div class="work-card-body"&gt;
           &lt;div class="tag-row"&gt;
             &lt;span class="tag"&gt;product&lt;/span&gt;
@@ -811,11 +806,11 @@
                   <button class="component-copy" type="button" data-copy-code>Copy code</button>
                 </div>
                 <div class="component-preview">
-                  <article class="work-card" data-animate="scale-in"><img src="assets/images/img (1).jpg" alt="Work"><div class="work-card-body"><h3>Signal Theory</h3><p>Brand system preview.</p></div></article>
+                  <article class="work-card" data-animate="scale-in"><picture><source srcset="assets/images/img (1).avif" type="image/avif"><source srcset="assets/images/img (1).webp" type="image/webp"><img loading="lazy" decoding="async" src="assets/images/img (1)-fallback.jpg" alt="Work"></picture><div class="work-card-body"><h3>Signal Theory</h3><p>Brand system preview.</p></div></article>
                 </div>
                 <pre><code>&lt;!-- WORK CARD --&gt;
 &lt;article class="work-card" data-category="brand"&gt;
-  &lt;a href="work-details.html"&gt;&lt;img src="assets/images/img (1).jpg" alt="Project image"&gt;&lt;/a&gt;
+  &lt;a href="work-details.html"&gt;&lt;img src="assets/images/img (1).webp" alt="Project image"&gt;&lt;/a&gt;
   &lt;div class="work-card-body"&gt;
     &lt;h3&gt;&lt;a href="work-details.html"&gt;Signal Theory&lt;/a&gt;&lt;/h3&gt;
     &lt;p&gt;Brand system preview.&lt;/p&gt;
@@ -887,11 +882,11 @@
                   <button class="component-copy" type="button" data-copy-code>Copy code</button>
                 </div>
                 <div class="component-preview">
-                  <article class="blog-card" data-animate="fade-up"><img src="assets/images/img (5).jpg" alt="Blog"><div class="blog-card-body"><h3>Agency homepage structure</h3><p>A practical design note.</p></div></article>
+                  <article class="blog-card" data-animate="fade-up"><picture><source srcset="assets/images/img (5).avif" type="image/avif"><source srcset="assets/images/img (5).webp" type="image/webp"><img loading="lazy" decoding="async" src="assets/images/img (5)-fallback.jpg" alt="Blog"></picture><div class="blog-card-body"><h3>Agency homepage structure</h3><p>A practical design note.</p></div></article>
                 </div>
                 <pre><code>&lt;!-- BLOG CARD --&gt;
 &lt;article class="blog-card"&gt;
-  &lt;a href="blog-details.html"&gt;&lt;img src="assets/images/img (5).jpg" alt="Blog image"&gt;&lt;/a&gt;
+  &lt;a href="blog-details.html"&gt;&lt;img src="assets/images/img (5).webp" alt="Blog image"&gt;&lt;/a&gt;
   &lt;div class="blog-card-body"&gt;
     &lt;h3&gt;&lt;a href="blog-details.html"&gt;Agency homepage structure&lt;/a&gt;&lt;/h3&gt;
     &lt;p&gt;A practical design note.&lt;/p&gt;
@@ -907,11 +902,11 @@
                   <button class="component-copy" type="button" data-copy-code>Copy code</button>
                 </div>
                 <div class="component-preview">
-                  <article class="team-card" data-animate="fade-up"><img src="assets/images/img (3).jpg" alt="Team"><div class="team-card-body"><h3>Creative Director</h3><p>Profile card text.</p></div></article>
+                  <article class="team-card" data-animate="fade-up"><picture><source srcset="assets/images/img (3).avif" type="image/avif"><source srcset="assets/images/img (3).webp" type="image/webp"><img loading="lazy" decoding="async" src="assets/images/img (3)-fallback.jpg" alt="Team"></picture><div class="team-card-body"><h3>Creative Director</h3><p>Profile card text.</p></div></article>
                 </div>
                 <pre><code>&lt;!-- TEAM CARD --&gt;
 &lt;article class="team-card"&gt;
-  &lt;img src="assets/images/img (3).jpg" alt="Team member"&gt;
+  &lt;img src="assets/images/img (3).webp" alt="Team member"&gt;
   &lt;div class="team-card-body"&gt;
     &lt;h3&gt;Creative Director&lt;/h3&gt;
     &lt;p&gt;Profile card text.&lt;/p&gt;
@@ -1003,7 +998,7 @@
                   <button class="component-copy" type="button" data-copy-code>Copy code</button>
                 </div>
                 <div class="component-preview">
-                  <div class="modal-box component-modal-preview"><button class="icon-button">Close</button><video src="assets/video/hero.mp4" muted playsinline></video></div>
+                  <div class="modal-box component-modal-preview"><button class="icon-button">Close</button><video data-video-src="assets/video/hero.mp4" preload="none" muted playsinline></video></div>
                 </div>
                 <pre><code>&lt;!-- VIDEO MODAL --&gt;
 &lt;div class="video-modal" data-video-modal&gt;
@@ -1138,12 +1133,12 @@
                   <button class="component-copy" type="button" data-copy-code>Copy code</button>
                 </div>
                 <div class="component-preview">
-                  <div class="masonry-grid component-masonry-preview"><article class="work-card" data-animate="scale-in"><img src="assets/images/img (9).jpg" alt="Masonry"><div class="work-card-body"><h3>Masonry card</h3></div></article></div>
+                  <div class="masonry-grid component-masonry-preview"><article class="work-card" data-animate="scale-in"><picture><source srcset="assets/images/img (9).avif" type="image/avif"><source srcset="assets/images/img (9).webp" type="image/webp"><img loading="lazy" decoding="async" src="assets/images/img (9)-fallback.jpg" alt="Masonry"></picture><div class="work-card-body"><h3>Masonry card</h3></div></article></div>
                 </div>
                 <pre><code>&lt;!-- MASONRY GRID ITEM --&gt;
 &lt;div class="masonry-grid"&gt;
   &lt;article class="work-card"&gt;
-    &lt;img src="assets/images/img (9).jpg" alt="Masonry work"&gt;
+    &lt;img src="assets/images/img (9).webp" alt="Masonry work"&gt;
     &lt;div class="work-card-body"&gt;
       &lt;h3&gt;Masonry card&lt;/h3&gt;
     &lt;/div&gt;
@@ -1199,13 +1194,13 @@
                   <button class="component-copy" type="button" data-copy-code>Copy code</button>
                 </div>
                 <div class="component-preview">
-                  <div class="grid grid-3"><img class="rounded-media" src="assets/images/img (4).jpg" alt="Gallery"><img class="rounded-media" src="assets/images/img (8).jpg" alt="Gallery"><img class="rounded-media" src="assets/images/img (12).jpg" alt="Gallery"></div>
+                  <div class="grid grid-3"><picture><source srcset="assets/images/img (4).avif" type="image/avif"><source srcset="assets/images/img (4).webp" type="image/webp"><img loading="lazy" decoding="async" class="rounded-media" src="assets/images/img (4)-fallback.jpg" alt="Gallery"></picture><picture><source srcset="assets/images/img (8).avif" type="image/avif"><source srcset="assets/images/img (8).webp" type="image/webp"><img loading="lazy" decoding="async" class="rounded-media" src="assets/images/img (8)-fallback.jpg" alt="Gallery"></picture><picture><source srcset="assets/images/img (12).avif" type="image/avif"><source srcset="assets/images/img (12).webp" type="image/webp"><img loading="lazy" decoding="async" class="rounded-media" src="assets/images/img (12)-fallback.jpg" alt="Gallery"></picture></div>
                 </div>
                 <pre><code>&lt;!-- GALLERY GRID --&gt;
 &lt;div class="grid grid-3"&gt;
-  &lt;img class="rounded-media" src="assets/images/img (4).jpg" alt="Gallery image"&gt;
-  &lt;img class="rounded-media" src="assets/images/img (8).jpg" alt="Gallery image"&gt;
-  &lt;img class="rounded-media" src="assets/images/img (12).jpg" alt="Gallery image"&gt;
+  &lt;img class="rounded-media" src="assets/images/img (4).webp" alt="Gallery image"&gt;
+  &lt;img class="rounded-media" src="assets/images/img (8).webp" alt="Gallery image"&gt;
+  &lt;img class="rounded-media" src="assets/images/img (12).webp" alt="Gallery image"&gt;
 &lt;/div&gt;</code></pre>
               </article>
               <article class="component-card" data-animate="fade-up">
@@ -1217,11 +1212,11 @@
                   <button class="component-copy" type="button" data-copy-code>Copy code</button>
                 </div>
                 <div class="component-preview">
-                  <div class="grid grid-2"><img class="rounded-media" src="assets/images/img (3).jpg" alt="Profile"><div class="detail-content"><h2>Bio</h2><p>Profile text for a specialist.</p></div></div>
+                  <div class="grid grid-2"><picture><source srcset="assets/images/img (3).avif" type="image/avif"><source srcset="assets/images/img (3).webp" type="image/webp"><img loading="lazy" decoding="async" class="rounded-media" src="assets/images/img (3)-fallback.jpg" alt="Profile"></picture><div class="detail-content"><h2>Bio</h2><p>Profile text for a specialist.</p></div></div>
                 </div>
                 <pre><code>&lt;!-- PROFILE DETAIL --&gt;
 &lt;div class="grid grid-2"&gt;
-  &lt;img class="rounded-media" src="assets/images/img (3).jpg" alt="Profile"&gt;
+  &lt;img class="rounded-media" src="assets/images/img (3).webp" alt="Profile"&gt;
   &lt;div class="detail-content"&gt;
     &lt;h2&gt;Bio&lt;/h2&gt;
     &lt;p&gt;Profile text for a specialist.&lt;/p&gt;
@@ -1394,7 +1389,7 @@
                 </div>
                 <pre><code>&lt;!-- SOFT PARALLAX --&gt;
 &lt;div class="video-showcase" data-parallax data-parallax-speed="0.06"&gt;
-  &lt;video src="assets/video/hero.mp4" autoplay muted loop playsinline&gt;&lt;/video&gt;
+  &lt;video data-video-src="assets/video/hero.mp4" preload="none" muted loop playsinline aria-hidden="true"&gt;&lt;/video&gt;
 &lt;/div&gt;</code></pre>
               </article>
               <article class="component-card" data-animate="fade-up">
@@ -1465,7 +1460,7 @@
 
           <div class="footer-bottom">
             <span>&copy; 2026 db7 Template. All rights reserved.</span>
-            <span>By: <a href="https://nathandebarros.com" target="_blank" rel="noopener">Nathan de Barros</a> made in <span class="fi fi-uy db7-flag" aria-label="Uruguay"></span></span>
+            <span>By: <a href="https://nathandebarros.com" target="_blank" rel="noopener">Nathan de Barros</a> made in <span class="db7-flag" role="img" aria-label="Uruguay">UY</span></span>
           </div>
         </div>
       </footer>
